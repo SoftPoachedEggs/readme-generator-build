@@ -8,8 +8,7 @@ const licensesObj = ['APACHE','BSD','GPL', 'MIT', 'None' ]
 
 // TODO: Create an array of questions for user input
 const questions = [
-inquirer.prompt([
-    {
+      {
         type: 'input',
         message: 'What is the name of project',
         name: 'projectname',
@@ -50,15 +49,14 @@ inquirer.prompt([
         message: 'What is your contact email?',
         name: 'emailcontact',
       },    
-    ])
+    ];
 
-];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  const readme = "./readmefolder/readme.md";
+function writeToFile(data) {
+  const fileName = "./readmefolder/README.md";
 
-  fs.writeFile("output.txt", "Hello World!", function(err) {
+  fs.writeFile(fileName, data, function(err) {
     if(err) {
         return console.error(err);
     }
@@ -69,7 +67,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.promt(questions)
+  inquirer.prompt(questions)
   .then (answers => writeToFile(generateMarkdown(answers)))
 }
 

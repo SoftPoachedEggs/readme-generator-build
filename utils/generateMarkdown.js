@@ -5,6 +5,7 @@ function renderLicenseBadge(license) {
   if (license != 'None' ) {
     badge = "![License Badge](https://img.shields.io/badge/license-" + license + "-orange);"
   }
+  return badge;
 }
   
 // TODO: Create a function that returns the license link
@@ -28,8 +29,8 @@ function renderLicenseLink(license) {
     break;
     default:
       licenseLink = ""; 
-
-  }
+    }
+    return licenseLink;
 }
 
 
@@ -37,26 +38,32 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
 let licenseSection = ""; 
-
-if (license != 'None') {
-  markdown += '## License\n'
-  markdown += 'Visit ' + renderLicenseLink(license) + ' for more information'
+  if (license != 'None') {
+    licenseSection += '## License\n'
+    licenseSection += 'Visit ' + renderLicenseLink(license) + ' for more information.\n'
+    licenseSection += renderLicenseBadge(license) + '\n'
+  }
+return licenseSection;
 }
-
-}
-//name of project projectname
-//description projectdescription
-//install instructions installinstructions
-//intended use intendeduse
-//collaborators/3p collaborators
-//licenses license
-//git Username gitusername
-//email emailcontact
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+    let markdown = '# ' + data.projectname + '\n';
+    markdown += '## Description\n';
+    markdown += data.projectdescription + '\n';
+    markdown += '## Install Instructions\n';
+    markdown += data.installinstructions + '\n';
+    markdown += '## Intended Use\n';
+    markdown += data.intendeduse + '\n';
+    markdown += '## Collaborators & 3rd Party Tech\n';
+    markdown += data.collaborators + '\n';
+    markdown += '## License\n';
+    markdown += renderLicenseSection(data.license) + '\n';
+    markdown += '## Contact\n';
+    markdown += data.gitusername + '\n';
+    markdown += data.emailcontact + '\n';
 
-  return `# ${data.title}
+  return markdown;
 }
 
 module.exports = generateMarkdown;
