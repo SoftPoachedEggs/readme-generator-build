@@ -8,10 +8,8 @@ For educational purposes only.
 ## Collaborators & 3rd Party Tech
 Node.JS & Inquirer
 ## License
-## License
 Visit https://opensource.org/licenses/MIT for more information.
 ![License Badge](https://img.shields.io/badge/license-MIT-orange);
-
 ## Contact
 https://github.com/SoftPoachedEggs
 ajkelsey53@gmail.com
