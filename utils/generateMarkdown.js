@@ -57,8 +57,7 @@ function generateMarkdown(data) {
     markdown += data.intendeduse + '\n';
     markdown += '## Collaborators & 3rd Party Tech\n';
     markdown += data.collaborators + '\n';
-    markdown += '## License\n';
-    markdown += renderLicenseSection(data.license) + '\n';
+    markdown += renderLicenseSection(data.license);
     markdown += '## Contact\n';
     markdown += data.gitusername + '\n';
     markdown += data.emailcontact + '\n';
