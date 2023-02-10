@@ -31,7 +31,7 @@ const questions = [
       {
         type: 'input',
         message: 'What are your projects collaborators or 3rd party assets?',
-        name: 'collaborators',
+        name: 'contributing',
       },
       {
         type: 'list',

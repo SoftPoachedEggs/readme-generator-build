@@ -37,7 +37,8 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-let licenseSection = ""; 
+  let licenseSection = '';
+
   if (license != 'None') {
     licenseSection += '## License\n'
     licenseSection += 'Visit ' + renderLicenseLink(license) + ' for more information.\n'
@@ -48,19 +49,37 @@ return licenseSection;
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+    let sections = [
+      "Description",
+      "Install",
+      "Use",
+      "Contributing",
+      "License",
+      "Questions",
+     ]
+
     let markdown = '# ' + data.projectname + '\n';
+    
+    markdown += "## Table of Contents\n";
+    for (let i=0; i<sections.length; i++) {
+      if (! (sections[i] === "License" && data.license === "None")) {
+        markdown += "- [" + sections[i] + "]" + "(#" + sections[i].toLowerCase() + ")\n";
+      }
+    }
+    markdown += "\n"
     markdown += '## Description\n';
     markdown += data.projectdescription + '\n';
-    markdown += '## Install Instructions\n';
+    markdown += '## Install\n';
     markdown += data.installinstructions + '\n';
-    markdown += '## Intended Use\n';
+    markdown += '## Use\n';
     markdown += data.intendeduse + '\n';
-    markdown += '## Collaborators & 3rd Party Tech\n';
-    markdown += data.collaborators + '\n';
+    markdown += '## Contributing\n';
+    markdown += data.contributing + '\n';
     markdown += renderLicenseSection(data.license);
-    markdown += '## Contact\n';
-    markdown += data.gitusername + '\n';
-    markdown += data.emailcontact + '\n';
+    markdown += '## Questions\n';
+    markdown += 'For any questions, please contact me at either of the following:\n'
+    markdown += '* ' + data.gitusername + '\n';
+    markdown += '* ' + data.emailcontact + '\n';
 
   return markdown;
 }
