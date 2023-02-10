@@ -12,7 +12,9 @@ This app is designed to quickly create a README file for use with other projects
 ## Install
 To install, run "npm install" and then run "node index.js" in terminal. 
 ## Use
-For educational purposes only. 
+For educational purposes only.
+## Video
+
 ## Contributing
 Node.JS
 ## License
