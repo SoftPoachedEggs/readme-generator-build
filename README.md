@@ -14,7 +14,7 @@ To install, run "npm install" and then run "node index.js" in terminal.
 ## Use
 For educational purposes only.
 ## Video
-[Website Image](/content/readmegen.gif)
+[image](./assets/readmegen.gif)
 ## Contributing
 Node.JS
 ## License
